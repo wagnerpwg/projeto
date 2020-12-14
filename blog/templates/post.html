@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+
+{% block Conteudo %} 
+                <div class="blog-post">
+                    <h2 class="blog-post-title">
+                    {{ post.Titulo }}
+                    </h2>
+                    <p class="blog-post-meta">{{ post.Data|date:'d, M Y '}} <a href="#">{{ post.Autor.get_full_name }}</a></p>
+
+                    {{ post.Conteudo|safe }}
+                </div><!-- /.blog-post -->
+
+{% endblock %}

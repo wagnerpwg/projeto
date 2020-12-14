@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block sub_header %}
+<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+                <div class="col-md-6 px-0">
+                <h1 class="display-4 font-italic">Principais noticias no mundo dos Games</h1>
+                <p class="lead my-3">Cyberpunk 2077, um dos games mais aguardados dos últimos tempos, chegou nesta quinta-feira (10) para PlayStation 4 (PS4), Xbox One e PC, além das versões melhoradas para PlayStation 5 (PS5) e Xbox Series X/S. Porém, usuários estão encontrando alguns bugs e problemas técnicos no lançamento. Um glitch, em especial, chama a atenção ao fazer com que o órgão sexual do protagonista atravesse as calças e balance em público. Rapidamente, as falhas se tornaram meme na Internet e as redes sociais ficaram cheias de piadas e clipes de erros. Em sua conta de Twitter, a produtora CD Projekt Red agradeceu pelo sucesso do jogo e afirmou que consertos e atualizações já estão em desenvolvimento.</p>
+                <p class="lead mb-0"><a href="#" class="text-white font-weight-bold"></a></p>
+                </div>
+            </div>
+                </div>
+            </div>
+{% endblock %}
+
+{% block Conteudo %} 
+<h3 class="pb-3 mb-4 font-italic border-bottom">
+                    
+                </h3>
+                {% for post in posts %}
+                <div class="blog-post">
+                    <h2 class="blog-post-title">
+                    <a href="/posts/{{ post.pk }}">{{ post.Titulo }}</a>
+                    </h2>
+                    <p class="blog-post-meta">{{ post.Data|date:'d, M Y '}} <a href="#">{{ post.Autor.get_full_name }}</a></p>
+
+                    {{ post.Sumario|safe }}
+                </div><!-- /.blog-post -->
+                {% endfor %}
+                <nav class="blog-pagination">
+                    <a class="btn btn-outline-primary" href="#">Mais antigas</a>
+                    <a class="btn btn-outline-secondary disabled" href="#">Mais recentes</a>
+                </nav>
+{% endblock %}
